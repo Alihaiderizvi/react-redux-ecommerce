@@ -7,13 +7,17 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 // Import Browser Router
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+// Import Redux React
+import { Provider } from "react-redux";
+import store from "./Redux/reducers/Index";
 const App = () => {
 	return (
 		<Router>
-			<Nav />
-			<Route path='/' exact component={Home} />
-			<Route path='/cart' exact component={Cart} />
+			<Provider store={store}>
+				<Nav />
+				<Route path='/' exact component={Home} />
+				<Route path='/cart' exact component={Cart} />
+			</Provider>
 		</Router>
 	);
 };

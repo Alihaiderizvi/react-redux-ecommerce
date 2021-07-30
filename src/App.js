@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // Import Redux React
 import { Provider } from "react-redux";
 import store from "./Redux/reducers/Index";
+import Details from "./components/Details";
 const App = () => {
 	return (
 		<Router>
@@ -17,6 +18,7 @@ const App = () => {
 				<Nav />
 				<Route path='/' exact component={Home} />
 				<Route path='/cart' exact component={Cart} />
+				<Route path='/details/:id' exact component={Details} />
 			</Provider>
 		</Router>
 	);

@@ -12,9 +12,14 @@ const CartReducer = (state = initState, action) => {
 			const check = state.products.find((prod) => prod.id === product.id);
 			if (!check) {
 				const tPrice = state.totalPrice + product.discountPrice * quantity;
-				// console.log(tPrice);
 				const tQty = state.totalQty + quantity;
-				console.log(tQty);
+				product.quantity = quantity;
+				return {
+					...state,
+					product: [...state.products, product],
+					totalPrice: tPrice,
+					totalQty: tQty,
+				};
 			} else {
 				return state;
 			}

@@ -10,7 +10,7 @@ const Details = () => {
 
 	const dispatch = useDispatch();
 	const { product } = useSelector((state) => state.ProductsReducer);
-	console.log(product);
+
 	useEffect(() => {
 		dispatch({ type: "PRODUCT", id });
 	}, [id]);
@@ -52,7 +52,17 @@ const Details = () => {
 							<span className='inc' onClick={quantityINC}>
 								<BsPlus />
 							</span>
-							<button className='btn-default'>add to cart</button>
+							<button
+								className='btn-default'
+								onClick={() =>
+									dispatch({
+										type: "ADD_TO_CART",
+										payload: { product, quantity },
+									})
+								}
+							>
+								add to cart
+							</button>
 						</div>
 					</div>
 					<div className='details__p'>

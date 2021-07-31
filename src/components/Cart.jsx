@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import currencyFormatter from "currency-formatter";
 import { BsDash, BsPlus } from "react-icons/bs";
 import { BsReverseBackspaceReverse } from "react-icons/bs";
 const Cart = () => {
+	const dispatch = useDispatch();
 	const { products } = useSelector((state) => state.CartReducer);
 	console.log(products);
+
+	const [quantity, setQuantity] = useState(1);
+
+	const quantityINC = () => {
+		setQuantity(quantity + 1);
+	};
+	const quantityDEC = () => {
+		if (quantity > 1) {
+			setQuantity(quantity - 1);
+		}
+	};
 	return (
 		<>
 			<div className='cart'>
@@ -45,11 +57,21 @@ const Cart = () => {
 											<div className='col-2'>
 												<div className='details__info cart__incDec'>
 													<div className='details__incDec'>
-														<span className='dec'>
+														<span
+															className='dec'
+															onClick={() =>
+																dispatch({ type: "DEC", payload: product.id })
+															}
+														>
 															<BsDash />
 														</span>
 														<span className='quantity'>{product.quantity}</span>
-														<span className='inc'>
+														<span
+															className='inc'
+															onClick={() =>
+																dispatch({ type: "INC", payload: product.id })
+															}
+														>
 															<BsPlus />
 														</span>
 													</div>

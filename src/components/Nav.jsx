@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillBagFill } from "react-icons/bs";
-
+import { useSelector } from "react-redux";
 const Nav = () => {
+	const { totalQty } = useSelector((state) => state.CartReducer);
 	return (
 		<>
 			<div className='nav'>
@@ -17,7 +18,7 @@ const Nav = () => {
 							<Link to='/cart'>
 								<div className='basket'>
 									<BsFillBagFill className='cart-icon' />
-									{/* <span></span> */}
+									<span>{totalQty}</span>
 								</div>
 							</Link>
 						</div>

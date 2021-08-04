@@ -5,7 +5,9 @@ import { BsDash, BsPlus } from "react-icons/bs";
 import { BsReverseBackspaceReverse } from "react-icons/bs";
 const Cart = () => {
 	const dispatch = useDispatch();
-	const { products } = useSelector((state) => state.CartReducer);
+	const { products, totalQty, totalPrice } = useSelector(
+		(state) => state.CartReducer
+	);
 	console.log(products);
 
 	const [quantity, setQuantity] = useState(1);
@@ -104,14 +106,14 @@ const Cart = () => {
 										<div className='summary__details'>
 											<div className='row mb-10'>
 												<div className='col-6'>Total Items:</div>
-												{/* <div className='col-6'>{totalQuantities}</div> */}
+												<div className='col-6'>{totalQty}</div>
 											</div>
 											<div className='row mb-10'>
 												<div className='col-6'>Total Price</div>
 												<div className='col-6'>
-													{/* {currencyFormatter.format(totalPrice, {
+													{currencyFormatter.format(totalPrice, {
 														code: "USD",
-													})} */}
+													})}
 												</div>
 											</div>
 											<button type='button' className='checkout'>

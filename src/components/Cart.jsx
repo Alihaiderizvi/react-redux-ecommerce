@@ -59,9 +59,9 @@ const Cart = () => {
 													<div className='details__incDec'>
 														<span
 															className='dec'
-															onClick={() =>
-																dispatch({ type: "DEC", payload: product.id })
-															}
+															onClick={() => {
+																dispatch({ type: "DEC", payload: product.id });
+															}}
 														>
 															<BsDash />
 														</span>
@@ -86,7 +86,12 @@ const Cart = () => {
 												</div>
 											</div>
 											<div className='col-2'>
-												<div className='cart__remove'>
+												<div
+													className='cart__remove'
+													onClick={() => {
+														dispatch({ type: "REMOVE", payload: product.id });
+													}}
+												>
 													<BsReverseBackspaceReverse />
 												</div>
 											</div>
@@ -121,7 +126,7 @@ const Cart = () => {
 						"Your cart is empty!"
 					)}
 				</div>
-			</div>{" "}
+			</div>
 		</>
 	);
 };

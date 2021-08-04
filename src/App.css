@@ -67,6 +67,7 @@ a {
 	font-size: 12px;
 }
 .row {
+	margin-top: 5rem;
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
@@ -123,9 +124,15 @@ a {
 	text-decoration: line-through;
 	font-size: 18px;
 }
+
+.details {
+	height: 100vh;
+	overflow: hidden;
+}
+
 .details__image {
-	width: 100%;
-	height: auto;
+	width: 40em;
+	height: 40em;
 	padding-right: 30px;
 }
 .details__image img {

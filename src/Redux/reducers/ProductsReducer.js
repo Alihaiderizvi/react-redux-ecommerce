@@ -1,4 +1,4 @@
-const initialState = {
+const initState = {
 	products: [
 		{
 			id: 1,
@@ -103,8 +103,7 @@ const initialState = {
 	],
 	product: {},
 };
-
-const ProductsReducer = (state = initialState, action) => {
+const ProductsReducer = (state = initState, action) => {
 	switch (action.type) {
 		case "PRODUCT":
 			return {

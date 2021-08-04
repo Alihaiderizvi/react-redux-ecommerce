@@ -60,7 +60,22 @@ const CartReducer = (state = initState, action) => {
 			} else {
 				return state;
 			}
+		case "REMOVE":
+			findProduct = state.products.find(
+				(product) => product.id === action.payload
+			);
 
+			const filtered = state.products.filter(
+				(product) => product.id !== action.payload
+			);
+
+			return {
+				...state,
+				products: filtered,
+				totalPrice:
+					state.totalPrice - findProduct.discountPrice * findProduct.quantity,
+				totalQty: state.totalQty - findProduct.quantity,
+			};
 		default:
 			return state;
 	}
